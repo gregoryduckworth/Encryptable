@@ -15,7 +15,7 @@ trait EncryptableTrait
     public function getAttribute($key)
     {
         $value = parent::getAttribute($key);
-        if (in_array($key, $this->encryptable)) {
+        if (in_array($key, $this->encryptable) && $value !== '') {
             $value = decrypt($value);
         }
 
